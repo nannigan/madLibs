@@ -1,43 +1,39 @@
 <!DOCTYPE html>
-<html ng-app="">
-
+<html ng-app="madLibs">
   <head>
+    <script src="lib/jquery.min.js"></script>
     <script data-require="angular.js@1.3.10" data-semver="1.3.10"  src="https://code.angularjs.org/1.3.10/angular.js"></script>
-     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script src="js/madLibs.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="css/style.css">
   </head>
-
-  <body ng-init="girlname='girl's name'; thc = 'a tedious or icky household chore'; animal ='species of animal'; name='pet animal's name'; animalnoise = 'pleasing animal noise'; uselessskill = 'a useless skill'; fooditem = 'food or snack item'; drink = 'refreshing drink'; language = 'programming language'; web = 'kind of web site'; ">
+  <body ng-controller="madController">
     <div class="outer">
       <div class='container'>
         <div class='header'><img src="img/mad-lib-happy-catface.png"><img src="img/ng-mad-libs-logo.png"></div>
         <hr>
-         <input type="text" ng-model="name"  placeholder="companion animal's name"/>
-       
-         <input type="text" ng-model="thc"  placeholder="a tedious or icky household chore"/>
-          <input type="text" ng-model="animal"  placeholder="species of  companion animal"/>
-         
-           <input type="text" ng-model="animalnoise"  placeholder="distinctive animal noise"/>
-          <input type="text" ng-model="uselessskill"  placeholder="a useless skill"/>
-          <input type="text" ng-model="fooditem"  placeholder="food or snack item"/>
-           <input type="text" ng-model="girlname"  placeholder="girl's name"/>
+        <input type="text" ng-model="name"  placeholder="companion animal's name"/>
+        <input type="text" ng-model="thc"  placeholder="doing tedious or icky household chore"/>
+        <input type="text" ng-model="animal"  placeholder="species of  companion animal"/>
+        <input type="text" ng-model="animalnoise"  placeholder="distinctive animal noise"/>
+        <input type="text" ng-model="uselessskill"  placeholder="a useless skill"/>
+        <input type="text" ng-model="fooditem"  placeholder="food or snack item"/>
+        <input type="text" ng-model="humanname"  placeholder="human name"/>
+        <label> Does the human use a male pronoun?
+          <input type="checkbox" id="gen" ng-model="gender" name="male" value="male"></label>
           <input type="text" ng-model="drink"  placeholder="refreshing drink"/>
           <input type="text" ng-model="language"  placeholder="programming language"/>
-          <input type="text" ng-model="web"  placeholder="resum&eacute; or portfolio?"/> 
-        <h4>See your story!</h4>
-
-        <p>&nbsp;<span class='blank'>{{girlname}}</span>&nbsp; &nbsp;wanted more work, so she was working on her &nbsp;&nbsp;<span class='blank'>{{web}}</span>&nbsp;&nbsp; site. 
-           &nbsp;<span class='blank'>{{girlname}}</span>&nbsp; felt so bored and stuck that &nbsp;<span class='blank'>{{thc}}</span>&nbsp; seemed irresistibley enticing. Being done with &nbsp;<span class='blank'>{{thc}}</span>&nbsp; she decided to take a nap with her pet &nbsp;<span class='blank'>{{animal}}</span>&nbsp;, &nbsp;<span class='blank'>{{name}}</span>&nbsp; for inspiration. </p> 
-           <p>&nbsp;<span class='blank'>{{name}}</span>&nbsp; &nbsp;<span class='blank'>{{animalnoise}}</span>&nbsp;ed gently. 
-           Hours later she woke with a start. Inspiration! She should learn &nbsp;<span class='blank'>{{uselessskill}}</span>&nbsp;. After a quick snack of &nbsp;<span class='blank'>{{fooditem}}</span>&nbsp; and a gulp of &nbsp;<span class='blank'>{{drink}}</span>&nbsp; she went online to find a purveyor of education offering training in many skills. Fate and Google led her to Thinkful.</p>
-          
-        <p>Thinkful didn't offer a course on &nbsp;<span class= 'blank'>{{uselessskill}}</span>&nbsp; so she studied &nbsp;<span class= 'blank'>{{language}}</span>&nbsp; instead. Tadah!! with her useful &nbsp;<span class= 'blank'>{{language}}</span>&nbsp; skills she was able to make a fabulous app that worked beautifully on all devices that created a perfect work-attracting &nbsp;<span class= 'blank'>{{web}}</span>&nbsp; site for her AND took care of &nbsp;<span class= 'blank'>{{thc}}</span>&nbsp;  She and &nbsp;<span class= 'blank'>{{name}}</span>&nbsp; lived happily from then on. &nbsp;<span class='blank'>{{girlname}}</span>&nbsp; had plenty of satisfying work and never had to even contemplate &nbsp;<span class= 'blank'>{{thc}}</span>&nbsp;</p> 
-
+          <input type="text" ng-model="web"  placeholder="resum&eacute; or portfolio?"/>
+          <h4>See your story!</h4>
+          <p>&nbsp;<span class='blank'>{{humanname}}</span>&nbsp; &nbsp;wanted more work, so <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span>  was working on <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">his</span>  &nbsp;&nbsp;<span class='blank'>{{web}}</span>&nbsp;&nbsp; site.
+          &nbsp;<span class='blank'>{{humanname}}</span>&nbsp; felt so bored and stuck that &nbsp;<span class='blank'>{{thc}}</span>&nbsp; seemed irresistibley enticing. Being done with &nbsp;<span class='blank'>{{thc}}</span>&nbsp; <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> decided to take a nap with <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">his</span> pet &nbsp;<span class='blank'>{{animal}}</span>&nbsp;, &nbsp;<span class='blank'>{{name}}</span>&nbsp; for inspiration. </p>
+          <p>&nbsp;<span class='blank'>{{name}}</span>&nbsp; &nbsp;<span class='blank'>{{animalnoise}}</span>&nbsp;ed gently.
+          Hours later <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> woke with a start. Inspiration! <span ng-if="gender =='female'">She</span> <span ng-if="gender =='male'">He</span> should learn &nbsp;<span class='blank'>{{uselessskill}}</span>&nbsp;. After a quick snack of &nbsp;<span class='blank'>{{fooditem}}</span>&nbsp; and a gulp of &nbsp;<span class='blank'>{{drink}}</span>&nbsp; <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> went online to find a purveyor of education offering training in many skills. Fate and Google led her to Thinkful.</p>
+          <p>Thinkful didn't offer a course on &nbsp;<span class= 'blank'>{{uselessskill}}</span>&nbsp; so <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> studied &nbsp;<span class= 'blank'>{{language}}</span>&nbsp; instead. Tadah!! with <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">his</span> useful &nbsp;<span class= 'blank'>{{language}}</span>&nbsp; skills <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> was able to make a fabulous app that worked beautifully on all devices that created a perfect work-attracting &nbsp;<span class= 'blank'>{{web}}</span>&nbsp; site for <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">his</span> AND took care of &nbsp;<span class= 'blank'>{{thc}}</span>&nbsp;  <span ng-if="gender =='female'">She</span> <span ng-if="gender =='male'">He</span> and &nbsp;<span class= 'blank'>{{name}}</span>&nbsp; lived happily from then on. &nbsp;<span class='blank'>{{humanname}}</span>&nbsp; had plenty of satisfying work and never had to even contemplate &nbsp;<span class= 'blank'>{{thc}}</span>&nbsp;</p>
+        </div>
       </div>
-    </div>
 
-  </body>
 
-</html>
+    </body>
+  </html>
