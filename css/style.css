@@ -48,6 +48,12 @@ input[placeholder]{
 	font-family: PT Mono;
 	color: #a32716;
 }
+input[type='checkbox']{
+	margin: 1em;
+}
+label{
+	margin-left: 1.2em;
+}
 
 a {
 	font-size: 1rem;
@@ -75,7 +81,9 @@ border: 1px solid #a32716;
 	max-height: 116px;
 	margin:0 auto;
 }
-
+/*
+.male{}
+.female{}*/
 /*layout*/
 
 .clear,.clearfix{
