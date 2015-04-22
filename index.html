@@ -20,8 +20,12 @@
         <input type="text" ng-model="uselessskill"  placeholder="a useless skill"/>
         <input type="text" ng-model="fooditem"  placeholder="food or snack item"/>
         <input type="text" ng-model="humanname"  placeholder="human name"/>
-       <!--  <label> Does the human use a male pronoun?
-          <input type="checkbox" id="gen" ng-model="gender" name="male" value="male"></label> -->
+      
+          <label for="male">Male</label>
+      <input type="radio" name="gender" ng-model="gender" value="male" />
+      
+      <label for="female">Female</label>
+      <input type="radio" name="gender" ng-model="gender" value="female" /></label> 
           <input type="text" ng-model="drink"  placeholder="refreshing drink"/>
           <input type="text" ng-model="language"  placeholder="programming language"/>
           <input type="text" ng-model="web"  placeholder="resum&eacute; or portfolio?"/>
