@@ -4,7 +4,7 @@ angular.module('madLibs', ['ngMessages'])
 		$scope.anew = true;//default when page loads
 		$scope.newgame = function(){
 			
-			// $scope.myForm.$setPristine();
+			$scope.myForm.$setPristine();
 			// $scope.myForm.$setUntouched();
 			$scope.anew = true;
 			$scope.petname = '';
@@ -18,7 +18,7 @@ angular.module('madLibs', ['ngMessages'])
 			$scope.gender = '';
 			$scope.webthing = '';
 			$scope.animal = '';
-			// $scope.myForm.reset();
+			
 };
 	
 
