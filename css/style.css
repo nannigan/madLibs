@@ -81,6 +81,27 @@ border: 1px solid #a32716;
 	max-height: 116px;
 	margin:0 auto;
 }
+.error{
+	margin-top:-20px;
+	padding-bottom:10px;
+	color:#a32716;
+	font-family: inherit;
+	font-size:.6em;
+	font-style:italic;
+	font-weight:bold;
+	
+}
+
+.redButt{
+	background:#a32716;
+	padding: 1em;
+	text-transform:uppercase;
+	color:#fff;
+	float: right;
+	box-shadow: none;
+	border:none;
+
+}
 /*
 .male{}
 .female{}*/
