@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html ng-app="madLibs">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
@@ -14,79 +15,93 @@
 
         <div ng-hide="myForm.$valid && myForm.$submitted" ng-show="anew === true">
           <form name='myForm' id='myForm' ng-submit='submitForm()' novalidate>
-            <input type="text" name="petname"  ng-model="petname"  placeholder="companion animal's name" required ng-minlength="3" />
-              <div ng-if='myForm.$submitted' ng-messages for="myForm.petname.$error" class='error'>
-                <ng-message when="required">gotta give us this one</ng-message>
-                <ng-message when="minlength">please say more...</ng-message>
-              </div>
-            <input type="text" name="thc" ng-model="thc"  placeholder="doing tedious or icky household chore" required ng-minlength="3"/>
-               <div ng-if='myForm.$submitted' ng-messages for="myForm.thc.$error" class='error'>
-                <ng-message when="required">gotta give us this one</ng-message>
-                <ng-message when="minlength">please say more...</ng-message>
-              </div>
-            <input type="text" name="animal" ng-model="animal"  placeholder="species of  companion animal" required ng-minlength="3"/>
-             <div ng-if='myForm.$submitted' ng-messages for="myForm.animal.$error" class='error'>
-                <ng-message when="required">gotta give us this one</ng-message>
-                <ng-message when="minlength">please say more...</ng-message>
-              </div>
-            <input type="text"name="animalnoise" ng-model="animalnoise"  placeholder="distinctive animal noise"     required ng-minlength="3"/>
-              <div ng-if='myForm.$submitted' ng-messages for="myForm.animalnoise.$error" class='error'>
-                <ng-message when="required">gotta give us this one</ng-message>
-                <ng-message when="minlength">please say more...</ng-message>
-              </div>
-            <input type="text"name="uselessskill" ng-model="uselessskill"  placeholder="a useless skill" required ng-minlength="3"/>
+
+
+            <input type="text"name="uselessskill" ng-model="data.uselessskill"  placeholder="a useless skill" required ng-minlength="3"/>
               <div ng-if='myForm.$submitted' ng-messages for="myForm.uselessskill.$error" class='error'>
                 <ng-message when="required">gotta give us this one</ng-message>
                 <ng-message when="minlength">please say more...</ng-message>
               </div>
-            <input type="text"name="fooditem" ng-model="fooditem"  placeholder="food or snack item" required ng-minlength="3"/>
+
+            <input type="text" name="petname"  ng-model="data.petname"  placeholder="companion animal's name" required ng-minlength="3" />
+              <div ng-if='myForm.$submitted' ng-messages for="myForm.petname.$error" class='error'>
+                <!-- using the name attr from input not the model -->
+                <ng-message when="required">gotta give us this one</ng-message>
+                <ng-message when="minlength">please say more...</ng-message>
+              </div>
+
+            <input type="text" name="thc" ng-model="data.thc"  placeholder="doing tedious or icky household chore" required ng-minlength="3"/>
+               <div ng-if='myForm.$submitted' ng-messages for="myForm.thc.$error" class='error'>
+                <ng-message when="required">gotta give us this one</ng-message>
+                <ng-message when="minlength">please say more...</ng-message>
+              </div>
+
+               <input type="text"name="language" ng-model="data.language"  placeholder="programming language" required ng-minlength="3"/>
+              <div ng-if='myForm.$submitted' ng-messages for="myForm.language.$error" class='error'>
+                <ng-message when="required">gotta give us this one</ng-message>
+                <ng-message when="minlength">please say more...</ng-message>
+              </div>
+
+            
+
+            <input type="text"name="animalnoise" ng-model="data.animalnoise"  placeholder="distinctive animal noise"     required ng-minlength="3"/>
+              <div ng-if='myForm.$submitted' ng-messages for="myForm.animalnoise.$error" class='error'>
+                <ng-message when="required">gotta give us this one</ng-message>
+                <ng-message when="minlength">please say more...</ng-message>
+              </div>
+
+
+            <input type="text"name="fooditem" ng-model="data.fooditem"  placeholder="food or snack item" required ng-minlength="3"/>
               <div ng-if='myForm.$submitted' ng-messages for="myForm.fooditem.$error" class='error'>
                 <ng-message when="required">gotta give us this one</ng-message>
                 <ng-message when="minlength">please say more...</ng-message>
               </div>
-            <input type="text"name="humanname" ng-model="humanname"  placeholder="human name" required ng-minlength="3"/>
+
+            <input type="text"name="humanname" ng-model="data.humanname"  placeholder="human name" required ng-minlength="3"/>
               <div ng-if='myForm.$submitted' ng-messages for="myForm.humanname.$error" class='error'>
                 <ng-message when="required">gotta give us this one</ng-message>
                 <ng-message when="minlength">please say more...</ng-message>
               </div>
             <label for="male">Male</label>
-            <input type="radio" name="gender" ng-model="gender" value="male" required/>
+            <input type="radio" name="gender" ng-model="data.gender" value="male" required/>
             <label for="female">Female</label>
-            <input type="radio" name="gender" ng-model="gender" value="female" required /></label>
+            <input type="radio" name="gender" ng-model="data.gender" value="female" required /></label>
 
             <div ng-if='myForm.$submitted' ng-messages for="myForm.gender.$error" class='error'>
                 <ng-message when="required">gotta give us a pronoun to use</ng-message>
               </div>
-            <input type="text"name="drink" ng-model="drink"  placeholder="refreshing drink" required ng-minlength="3"/>
+            <input type="text"name="drink" ng-model="data.drink"  placeholder="refreshing drink" required ng-minlength="3"/>
               <div ng-if='myForm.$submitted' ng-messages for="myForm.drink.$error" class='error'>
                 <ng-message when="required">gotta give us this one</ng-message>
                 <ng-message when="minlength">please say more...</ng-message>
               </div>
-            <input type="text"name="language" ng-model="language"  placeholder="programming language" required ng-minlength="3"/>
-              <div ng-if='myForm.$submitted' ng-messages for="myForm.language.$error" class='error'>
-                <ng-message when="required">gotta give us this one</ng-message>
-                <ng-message when="minlength">please say more...</ng-message>
-              </div>
-            <input type="text"name="webthing" ng-model="webthing"  placeholder="resum&eacute; or portfolio?" required ng-minlength="3"/>
+
+            <input type="text"name="webthing" ng-model="data.webthing"  placeholder="resum&eacute; or portfolio?" required ng-minlength="3"/>
               <div ng-if='myForm.$submitted' ng-messages for="myForm.webthing.$error" class='error'>
                 <ng-message when="required">gotta give us this one</ng-message>
                 <ng-message when="minlength">please say more...</ng-message>
               </div>
-            <input type="submit" class="redButt" value="Prepare your story!">
+
+            <input type="text" name="animal" ng-model="data.animal"  placeholder="species of  companion animal" required ng-minlength="3"/>
+             <div ng-if='myForm.$submitted' ng-messages for="myForm.animal.$error" class='error'>
+                <ng-message when="required">gotta give us this one</ng-message>
+                <ng-message when="minlength">please say more...</ng-message>
+              </div>
+
+           
+              
+            <input type="submit" class="redButt" value="Prepare your story!" ng-click="animateData=!animateData;">
           </form>
         </div>
-        <!-- <div ng-if="myForm.$submitted" ng-messages="myForm.petname.$error">
-          <span class="error" ng-message="required">Field is required!</span>
-          <span class="error" ng-message="minlength">Field is too short!!</span>
-        </div> ng-if="{makeStory:true}"-->
+
         <hr>
-        <div id='story' ng-show="myForm.$valid && myForm.$submitted" ng-hide="anew === true">
+        <div id='story' ng-show="myForm.$valid && myForm.$submitted" ng-hide="aNewOne === true"> <!-- ng-class={animateData()} -->
           <h4>See your story!</h4>
-          <p>&nbsp;<span class='blank'>{{humanname}}</span>&nbsp; &nbsp;wanted more work, so <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span>  was working on <span ng-if="gender =='female'">her</span> <span ng-if="sgender =='male'">his</span>  &nbsp;&nbsp;<span class='blank'>{{webthing}}</span>&nbsp;&nbsp; site.
-          &nbsp;<span class='blank'>{{humanname}}</span>&nbsp; felt so bored and stuck that &nbsp;<span class='blank'>{{thc}}</span>&nbsp; seemed irresistibley enticing. Being done with &nbsp;<span class='blank'>{{thc}}</span>&nbsp; <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> decided to take a nap with <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">his</span> pet &nbsp;<span class='blank'>{{animal}}</span>&nbsp;, &nbsp;<span class='blank'>{{petname}}</span>&nbsp; for inspiration. </p>
-          <p>&nbsp;<span class='blank'>{{petname}}</span>&nbsp; &nbsp;<span class='blank'>{{animalnoise}}</span>&nbsp;ed gently.
-          Hours later <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> woke with a start. Inspiration! <span ng-if="gender =='female'">She</span> <span ng-if="gender =='male'">He</span> should learn &nbsp;<span class='blank'>{{uselessskill}}</span>&nbsp;. After a quick snack of &nbsp;<span class='blank'>{{fooditem}}</span>&nbsp; and a gulp of &nbsp;<span class='blank'>{{drink}}</span>&nbsp; <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> went online to find a purveyor of education offering training in many skills. Fate and Google led <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">him</span> to Thinkful.</p>
-          <p>Thinkful didn't offer a course on &nbsp;<span class= 'blank'>{{uselessskill}}</span>&nbsp; so <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> studied &nbsp;<span class= 'blank'>{{language}}</span>&nbsp; instead. Tadah!! with <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">his</span> useful &nbsp;<span class= 'blank'>{{language}}</span>&nbsp; skills <span ng-if="gender =='female'">she</span> <span ng-if="gender =='male'">he</span> was able to make a fabulous app that worked beautifully on all devices that created a perfect work-attracting &nbsp;<span class= 'blank'>{{webthing}}</span>&nbsp; site for <span ng-if="gender =='female'">her</span> <span ng-if="gender =='male'">him</span> AND took care of &nbsp;<span class= 'blank'>{{thc}}</span>&nbsp;  <span ng-if="gender =='female'">She</span> <span ng-if="gender =='male'">He</span> and &nbsp;<span class= 'blank'>{{petname}}</span>&nbsp; lived happily from then on. &nbsp;<span class='blank'>{{humanname}}</span>&nbsp; had plenty of satisfying work and never had to even contemplate &nbsp;<span class= 'blank'>{{thc}}</span>&nbsp;</p>
+          <p>&nbsp;<span class='blank animateData' ng-if='animateData'>{{data.humanname}}</span>&nbsp; &nbsp;wanted more work, so <span ng-if="data.gender =='female'">she</span> <span ng-if="data.gender =='male'">he</span>  was working on <span ng-if="data.gender =='female'">her</span> <span ng-if="data.gender =='male'">his</span>  &nbsp;&nbsp;<span class='blank'>{{data.webthing}}</span>&nbsp;&nbsp; site.
+          &nbsp;<span class='blank'>{{data.humanname}}</span>&nbsp; felt so bored and stuck that &nbsp;<span class='blank'>{{data.thc}}</span>&nbsp; seemed irresistibley enticing. Being done with &nbsp;<span class='blank'>{{data.thc}}</span>&nbsp; <span ng-if="data.gender =='female'">she</span> <span ng-if="data.gender =='male'">he</span> decided to take a nap with <span ng-if="data.gender =='female'">her</span> <span ng-if="data.gender =='male'">his</span> pet &nbsp;<span class='blank'>{{data.animal}}</span>&nbsp;, &nbsp;<span class='blank'>{{data.petname}}</span>&nbsp; for inspiration. </p>
+          <p>&nbsp;<span class='blank'>{{data.petname}}</span>&nbsp; &nbsp;<span class='blank'>{{data.animalnoise}}</span>&nbsp;ed gently.
+          Hours later <span ng-if="data.gender =='female'">she</span> <span ng-if="data.gender =='male'">he</span> woke with a start. Inspiration! <span ng-if="data.gender =='female'">She</span> <span ng-if="data.gender =='male'">He</span> should learn &nbsp;<span class='blank'>{{data.uselessskill}}</span>&nbsp;. After a quick snack of &nbsp;<span class='blank'>{{data.fooditem}}</span>&nbsp; and a gulp of &nbsp;<span class='blank'>{{data.drink}}</span>&nbsp; <span ng-if="data.gender =='female'">she</span> <span ng-if="data.gender =='male'">he</span> went online to find a purveyor of education offering training in many skills. Fate and Google led <span ng-if="data.gender =='female'">her</span> <span ng-if="data.gender =='male'">him</span> to Thinkful.</p>
+          <p>Thinkful didn't offer a course on &nbsp;<span class= 'blank'>{{data.uselessskill}}</span>&nbsp; so <span ng-if="data.gender =='female'">she</span> <span ng-if="data.gender =='male'">he</span> studied &nbsp;<span class= 'blank'>{{data.language}}</span>&nbsp; instead. Tadah!! with <span ng-if="data.gender =='female'">her</span> <span ng-if="data.gender =='male'">his</span> useful &nbsp;<span class= 'blank'>{{data.language}}</span>&nbsp; skills <span ng-if="data.gender =='female'">she</span> <span ng-if="data.gender =='male'">he</span> was able to make a fabulous app that worked beautifully on all devices that created a perfect work-attracting &nbsp;<span class= 'blank'>{{data.webthing}}</span>&nbsp; site for <span ng-if="data.gender =='female'">her</span> <span ng-if="data.gender =='male'">him</span> AND took care of &nbsp;<span class= 'blank'>{{data.thc}}</span>&nbsp;  <span ng-if="data.gender =='female'">She</span> <span ng-if="data.gender =='male'">He</span> and &nbsp;<span class= 'blank'>{{data.petname}}</span>&nbsp; lived happily from then on. &nbsp;<span class='blank'>{{data.humanname}}</span>&nbsp; had plenty of satisfying work and never had to even contemplate &nbsp;<span class= 'blank'>{{data.thc}}</span>&nbsp;</p>
             <button class="redButt" ng-click="newgame();">OOOOh, let's do that again</button>
         </div>
               
@@ -95,6 +110,8 @@
     <script src="lib/jquery.min.js"></script>
     <script data-require="angular.js@1.3.10" data-semver="1.3.10"  src="https://code.angularjs.org/1.3.10/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-messages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+    
     <script src="js/madLibs.js"></script>
   </body>
 </html>

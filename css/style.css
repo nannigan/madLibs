@@ -102,9 +102,7 @@ border: 1px solid #a32716;
 	border:none;
 
 }
-/*
-.male{}
-.female{}*/
+
 /*layout*/
 
 .clear,.clearfix{
@@ -138,13 +136,60 @@ border: 1px solid #a32716;
 	display: inline-block;
 	
 }
-.blank{
+.blank {
 	display:inline-block;
 	min-width: 2em;
 	border-bottom:1px dotted #a32716;
 	height: 29px;
 	font-weight: 700;
+	
 }
+
+.animateData {
+    -webkit-transition: linear 1s;
+    -moz-transition: linear 1s;
+    -ms-transition: linear 1s;
+    -o-transition: linear 1s;
+    transition: linear 1s;
+	    opacity: 0;
+}
+/* working with ng-if on data spans */
+.animateData.ng-enter {
+    opacity: 0;
+}
+
+.animateData.ng-enter-active {
+    opacity: 1;
+}
+
+.animateData.ng-leave {
+    opacity: 1;
+}
+
+.animateData.ng-leave-active {
+    opacity: 0;
+}
+
+#story
+{
+  -webkit-transition: 2s  all;
+  transition: 2s  all;
+      opacity: 1;
+      margin-top:0;
+}
+.ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: block !important; 
+}
+#story.ng-hide{
+	opacity:0;
+	margin-top:-400px;
+	margin-left: -400px;
+}
+
+
+
+
 
 
 /*media queries*/
