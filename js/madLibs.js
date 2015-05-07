@@ -8,9 +8,13 @@ angular.module('madLibs', ['ngMessages', 'ngAnimate'])
 
 		$scope.newgame = function(){
 			
+
 			$scope.myForm.$setPristine();
 			$scope.myForm.$setUntouched();
 			$scope.aNewOne = true;
+
+
+
 
 			$scope.data={
 						petname :'',
