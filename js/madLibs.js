@@ -1,29 +1,36 @@
-angular.module('madLibs', ['ngMessages'])
+angular.module('madLibs', ['ngMessages', 'ngAnimate'])
 .controller('madController', function($scope){
 
-		$scope.anew = true;//default when page loads
+		$scope.aNewOne = true;//default when page loads
+
+		$scope.animateData = true;
+
+
 		$scope.newgame = function(){
 			
-			 $scope.myForm.$setPristine();
-			// $scope.myForm.$setUntouched();
-			$scope.anew = true;
-			$scope.petname = '';
-			$scope.humanname = '';
-			$scope.language = '';
-			$scope.fooditem = '';
-			$scope.drink = '';
-			$scope.thc = '';
-			$scope.animalnoise = '';
-			$scope.uselessskill = '';
-			$scope.gender = '';
-			$scope.webthing = '';
-			$scope.animal = '';
-			// $scope.myForm.reset();
-};
-	
 
+			$scope.myForm.$setPristine();
+			$scope.myForm.$setUntouched();
+			$scope.aNewOne = true;
+
+
+
+
+			$scope.data={
+						petname :'',
+						humanname :'',
+						language :'',
+						fooditem :'',
+						drink :'',
+						thc :'',
+						animalnoise :'',
+						uselessskill :'',
+						gender :'',
+						webthing :'',
+						animal :''
+				};
+		};
 	
-		
 	}
 );
 
